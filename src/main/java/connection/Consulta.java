@@ -1,7 +1,5 @@
 package connection;
 
-import model.Usuario;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
