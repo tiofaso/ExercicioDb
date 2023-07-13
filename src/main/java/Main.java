@@ -138,5 +138,9 @@ public class Main {
 
             }//end switch
         }//end while
+
+        //Encerrando conexão com db
+        EncerraConexao fim = new EncerraConexao();
+        fim.fechaDb();
     }//end main
 }//end class
