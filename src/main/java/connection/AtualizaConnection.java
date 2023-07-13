@@ -4,12 +4,12 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Atualiza { //Atualiza dados da DB
+public class AtualizaConnection { //Atualiza dados da DB
     public void atualizaDados(int id, String nome) {
         String sql = "UPDATE usuarios SET nome = '" + nome + "' WHERE id_usuario = '" + id + "'";
 
         //Abrindo conexão
-        Connection conexao = Conexao.getConnection();
+        Connection conexao = ConexaoConnection.getConnection();
 
         try{
 

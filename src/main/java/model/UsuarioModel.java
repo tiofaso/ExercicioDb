@@ -1,19 +1,19 @@
 package model;
 
 //Tabela do nosso banco
-public class Usuario {
+public class UsuarioModel {
 
     //Atributos = Colunas do banco
 
     private int id_usuario;
     private String nome;
 
-    public Usuario(int id_usuario, String nome) {
+    public UsuarioModel(int id_usuario, String nome) {
         this.id_usuario = id_usuario;
         this.nome = nome;
     }
 
-    public  Usuario() {}
+    public UsuarioModel() {}
 
     public int getId_usuario() {
         return id_usuario;

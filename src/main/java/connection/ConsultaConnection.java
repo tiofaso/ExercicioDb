@@ -5,13 +5,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Consulta { //Consulta dados na DB
+public class ConsultaConnection { //Consulta dados na DB
     public void consultaDados() {
 
         String sql = "SELECT id_usuario, nome FROM usuarios";
 
         //Abrindo conexão
-        Connection conexao = Conexao.getConnection();
+        Connection conexao = ConexaoConnection.getConnection();
 
         try{
             if(conexao != null) {

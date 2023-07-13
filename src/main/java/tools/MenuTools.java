@@ -3,7 +3,7 @@ package tools;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Menu {
+public class MenuTools {
     private Map<Integer,String> menu = new HashMap<Integer,String>();
 
     public void mostraMenu(){//Menu padrão do programa

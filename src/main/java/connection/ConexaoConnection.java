@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Conexao {
+public class ConexaoConnection {
     public static Connection getConnection(){
         try{
             Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/dbfaso",

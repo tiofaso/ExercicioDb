@@ -2,7 +2,7 @@ package tools;
 
 import java.util.Scanner;
 
-public class LeitorTecladoInt {
+public class LeitorTecladoIntTools {
     private int valorDigitado;
 
     public int teclado(){

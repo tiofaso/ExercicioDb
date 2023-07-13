@@ -4,13 +4,13 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Insere { //Insere dados na DB
+public class InsereConnection { //Insere dados na DB
     public void insereDados (String nome) {
 
         String sql = "INSERT INTO usuarios (nome) VALUES ('" + nome + "')";
 
         //Abrindo conexão
-        Connection conexao = Conexao.getConnection();
+        Connection conexao = ConexaoConnection.getConnection();
 
         try{
             if(conexao != null) {

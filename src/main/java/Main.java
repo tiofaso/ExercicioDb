@@ -1,22 +1,22 @@
 import connection.*;
-import model.Usuario;
-import tools.LeitorTecladoInt;
-import tools.LeitorTecladoString;
-import tools.Menu;
+import model.UsuarioModel;
+import tools.LeitorTecladoIntTools;
+import tools.LeitorTecladoStringTools;
+import tools.MenuTools;
 
 public class Main {
     //Essa classe vai ser responsável pela execução da aplicação
     public static void main(String[] args) {
 
         //Instanciando usuário
-        Usuario usuario = new Usuario();
+        UsuarioModel usuarioModel = new UsuarioModel();
 
-        Menu menu = new Menu();
-        menu.mostraMenu();
+        MenuTools menuTools = new MenuTools();
+        menuTools.mostraMenu();
 
         //Instanciando teclados
-        LeitorTecladoInt tecladoInt = new LeitorTecladoInt();
-        LeitorTecladoString tecladoString = new LeitorTecladoString();
+        LeitorTecladoIntTools tecladoInt = new LeitorTecladoIntTools();
+        LeitorTecladoStringTools tecladoString = new LeitorTecladoStringTools();
 
         //Instanciando variáveis
         int id;
@@ -27,7 +27,7 @@ public class Main {
         opcao = tecladoInt.teclado();
 
         //Instanciando a exibição de nomes
-        Consulta listaNomes = new Consulta();
+        ConsultaConnection listaNomes = new ConsultaConnection();
 
         //Setando opção para sair do programa
         int sair = 0;
@@ -42,10 +42,10 @@ public class Main {
 
                     nome = tecladoString.teclado();
 
-                    usuario.setNome(nome);
+                    usuarioModel.setNome(nome);
 
-                    Insere novoNome = new Insere();
-                    novoNome.insereDados(usuario.getNome());
+                    InsereConnection novoNome = new InsereConnection();
+                    novoNome.insereDados(usuarioModel.getNome());
 
                     System.out.println("\nInformações atuais da base de dados:");
                     listaNomes.consultaDados();
@@ -72,11 +72,11 @@ public class Main {
                     System.out.println("Digite o novo nome");
                     nome = tecladoString.teclado();
 
-                    Atualiza mudaNome = new Atualiza();
-                    usuario.setId_usuario(id);
-                    usuario.setNome(nome);
+                    AtualizaConnection mudaNome = new AtualizaConnection();
+                    usuarioModel.setId_usuario(id);
+                    usuarioModel.setNome(nome);
 
-                    mudaNome.atualizaDados(usuario.getId_usuario(), usuario.getNome());
+                    mudaNome.atualizaDados(usuarioModel.getId_usuario(), usuarioModel.getNome());
 
                     //Mostrando lista de nomes
                     System.out.println("\nInformações atuais da base de dados:");
@@ -101,10 +101,10 @@ public class Main {
 
                     id = tecladoInt.teclado();
 
-                    Apaga apagaNome = new Apaga();
-                    usuario.setId_usuario(id);
+                    ApagaConnection apagaNome = new ApagaConnection();
+                    usuarioModel.setId_usuario(id);
 
-                    apagaNome.apagaDados(usuario.getId_usuario());
+                    apagaNome.apagaDados(usuarioModel.getId_usuario());
 
                     //Mostrando lista de nomes
                     System.out.println("\nInformações atuais da base de dados:");
@@ -121,7 +121,7 @@ public class Main {
                 case 4:
                     System.out.println("> MOSTRAR NOMES");
 
-                    Consulta verNomes = new Consulta();
+                    ConsultaConnection verNomes = new ConsultaConnection();
                     verNomes.consultaDados();
 
                     //-----
@@ -133,14 +133,14 @@ public class Main {
 
                     break;
                 default:
-                    menu.mostraMenu();
+                    menuTools.mostraMenu();
                     opcao = tecladoInt.teclado();
 
             }//end switch
         }//end while
 
         //Encerrando conexão com db
-        EncerraConexao fim = new EncerraConexao();
+        EncerraConnection fim = new EncerraConnection();
         fim.fechaDb();
     }//end main
 }//end class

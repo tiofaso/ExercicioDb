@@ -4,12 +4,12 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Apaga{ //Apaga dados da DB
+public class ApagaConnection { //Apaga dados da DB
     public void apagaDados(int id){
         String sql = "DELETE FROM usuarios WHERE id_usuario ='" + id + "'";
 
         //Abrindo conexão
-        Connection conexao = Conexao.getConnection();
+        Connection conexao = ConexaoConnection.getConnection();
 
         try{
 
